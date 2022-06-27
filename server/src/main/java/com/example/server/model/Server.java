@@ -1,10 +1,12 @@
 package com.example.server.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import javax.validation.constraints.NotEmpty;
 
+import com.example.server.enumeration.Status;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -15,12 +17,12 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Server {
-    @Id @GeneralValue(strategy = AUTO)
+    @Id
+    @GeneratedValue(strategy = AUTO)
     private Long id;
     @Column(unique = true)
-    @NotEmpty(message = "Ip Address cannot be empty or null")
+    @NotEmpty(message = "IP Address cannot be empty or null")
     private String ipAddress;
     private String name;
     private String memory;

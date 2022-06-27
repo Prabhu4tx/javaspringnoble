@@ -1,9 +1,11 @@
 package com.example.server.repo;
 import com.example.server.model.Server;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ServerRepo extends JpaRepository<Server, Long>{
+import java.lang.reflect.Array;
+@Configuration
+public interface ServerRepo extends JpaRepository<Server, Long> {
     Server findByIpAddress(String ipAddress);
-    //Server findBy;
-    //Server findByName(String name);
+
 }

@@ -1,4 +1,4 @@
-package com.example.server.model;
+package com.example.server.enumeration;
 
 public enum Status {
    SERVER_UP("SERVER_UP"),
