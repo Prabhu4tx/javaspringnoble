@@ -11,9 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 import static java.lang.Boolean.TRUE;
 import static org.springframework.data.domain.PageRequest.of;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.data.querydsl.QPageRequest;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -28,13 +30,15 @@ import static com.example.server.enumeration.Status.SERVER_UP;
 import static java.util.List.of;
 import static java.util.stream.Collectors.toList;
 
+@Repository
 @RequiredArgsConstructor
 @Service
 @Transactional
 @Slf4j
-@SpringBootApplication(scanBasePackages = {"test"} , exclude = JpaRepositoriesAutoConfiguration.class)
+//@SpringBootApplication(scanBasePackages = {"test"} , exclude = JpaRepositoriesAutoConfiguration.class)
 public class ServerServiceImpl implements ServerService {
-    private final ServerRepo serverRepo;
+
+    private  ServerRepo serverRepo;
 
 
 

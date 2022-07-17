@@ -4,6 +4,7 @@ import com.example.server.model.Response;
 import com.example.server.model.Server;
 import com.example.server.service.implementation.ServerServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,7 @@ import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 @RequestMapping("/server")
 @RequiredArgsConstructor
 public class ServerResource {
+    @Autowired
     private final ServerServiceImpl serverService;
     @GetMapping("/list")
     public ResponseEntity<Response> getServers() {
@@ -46,7 +48,7 @@ public class ServerResource {
                 Response.builder()
                         .timeStamp(now())
                         .data(of("server", server))
-                        .message(server.getStatus() == SERVER_UP ? "PING success" : "Ping Failed")
+                        .message(server.getStatus() == SERVER_UP ? "PING success" : "Ping failed")
                         .status(OK)
                         .statusCode(OK.value())
                         .build()
@@ -55,7 +57,7 @@ public class ServerResource {
         );
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public ResponseEntity<Response> saveServer(@RequestBody @Valid Server server) {
         return ResponseEntity.ok(
                 Response.builder()

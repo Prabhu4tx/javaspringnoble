@@ -1,17 +1,14 @@
 
 spring:
-  dataSources:
-    password: Albert@2019
-    url: jdbc:mysql://localhost:3306/mysqlserverdb
+  datasource:
+    url: jdbc:mysql://localhost:3306/server
     username: root
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    password: Albert@2019
   jpa:
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MYSQL8Dialect
-        format_sql: true
+        #dialect: org.hibernate.dialect.MYSQL8Dialect
+        formal_sql: true
     show-sql: true
