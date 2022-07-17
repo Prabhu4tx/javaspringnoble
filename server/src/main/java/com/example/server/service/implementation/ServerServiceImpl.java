@@ -37,7 +37,7 @@ import static java.util.stream.Collectors.toList;
 @Slf4j
 //@SpringBootApplication(scanBasePackages = {"test"} , exclude = JpaRepositoriesAutoConfiguration.class)
 public class ServerServiceImpl implements ServerService {
-
+    @Autowired
     private  ServerRepo serverRepo;
 
 
